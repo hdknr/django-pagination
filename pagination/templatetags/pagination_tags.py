@@ -4,7 +4,8 @@ except NameError:
     from sets import Set as set
 
 from django import template
-from django.template import TOKEN_BLOCK
+# https://github.com/ericflo/django-pagination/pull/21/files
+from django.template.base import TOKEN_BLOCK
 from django.http import Http404
 from django.core.paginator import Paginator, InvalidPage
 from django.conf import settings
