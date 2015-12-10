@@ -4,7 +4,8 @@ def get_page(self, suffix):
     integer representing the current page.
     """
     try:
-        return int(self.REQUEST['page%s' % suffix])
+        # DIRTY FIX: WSGIRequest dropped REQUEST
+        return int(self.GET['page%' %  suffix])
     except (KeyError, ValueError, TypeError):
         return 1
 
