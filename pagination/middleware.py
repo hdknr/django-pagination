@@ -5,9 +5,10 @@ def get_page(self, suffix):
     """
     try:
         # DIRTY FIX: WSGIRequest dropped REQUEST
-        return int(self.GET['page%' %  suffix])
+        return int(self.GET['page%s' % suffix])
     except (KeyError, ValueError, TypeError):
         return 1
+
 
 class PaginationMiddleware(object):
     """
