@@ -1,3 +1,6 @@
+from django.utils.deprecation import MiddlewareMixin        # Mixin
+
+
 def get_page(self, suffix):
     """
     A function which will be monkeypatched onto the request to get the current
@@ -10,7 +13,7 @@ def get_page(self, suffix):
         return 1
 
 
-class PaginationMiddleware(object):
+class PaginationMiddleware(MiddlewareMixin):
     """
     Inserts a variable representing the current page onto the request object if
     it exists in either **GET** or **POST** portions of the request.
